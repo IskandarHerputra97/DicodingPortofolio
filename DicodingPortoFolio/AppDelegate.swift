@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,62 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        FirebaseApp.configure()
+        let db = Firestore.firestore()
+        
+        // Get a reference to the storage service using the default Firebase App
+        let storage = Storage.storage()
+        
+        // Create a storage reference from our storage service
+        let storageRef = storage.reference()
+        
+        //Create data
+        /*
+        db.collection("portofolio").addDocument(data: ["name":"Portofolio A", "description":"Project ios app tentang menu makanan dan detail makanan tersebut"])
+        */
+        
+        //Read data
+        db.collection("portofolio").document("DP7h4gFi94M2i2poayn6").getDocument { (document, error) in
+            //Check for error
+            if error == nil {
+                //Check that this document exist
+                if document != nil && document!.exists {
+                    let documentData = document!.data()
+                    //print(documentData)
+                }
+            }
+        }
+        
+        //Read all data from documents
+        db.collection("portofolio").getDocuments{ (snapshot, error) in
+            if error == nil && snapshot != nil {
+                for document in snapshot!.documents {
+                    let documentData = document.data()
+                    //print(documentData)
+                }
+            }
+        }
+        
+        //Read a subset of documents
+        db.collection("portofolio").whereField("name", isEqualTo: "Portofolio B").getDocuments { (snapshot, error) in
+            
+        }
+
+        //Update data
+       /* db.collection("portofolio").document("DP7h4gFi94M2i2poayn6").setData([
+            "name":"Portofolio B"
+            ])
+        */
+        //
+        
+        let portoListViewController = PortoListViewController()
+        let navigationController = UINavigationController(rootViewController: portoListViewController)
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
