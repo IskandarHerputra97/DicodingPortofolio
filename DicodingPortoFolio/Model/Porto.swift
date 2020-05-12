@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 
 struct Porto {
-    var image: UIImage
     var name: String
     var description: String
 }

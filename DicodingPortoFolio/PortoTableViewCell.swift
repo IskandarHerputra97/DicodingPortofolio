@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class PortoTableViewCell: UITableViewCell {
     
@@ -29,8 +30,8 @@ class PortoTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func set(porto: Porto) {
-        portoImageView.image = porto.image
+    func set(porto: Porto, indexPathRow: Int) {
+        fetchFirebaseStorageData(index: indexPathRow)
         portoTitleLabel.text = porto.name
     }
     
@@ -60,4 +61,17 @@ class PortoTableViewCell: UITableViewCell {
         portoTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
     }
     
+    func fetchFirebaseStorageData(index: Int) {
+        let storageRef = Storage.storage().reference(withPath: "ios\(index+1).jpg")
+        storageRef.getData(maxSize: 4 * 1024 * 1024) { [weak self] (data, error) in
+            //if there is an error
+            if let error = error {
+                print("Got an error fetching data: \(error.localizedDescription)")
+                return
+            }
+            if let data = data {
+                self?.portoImageView.image = UIImage(data: data)
+            }
+        }
+    }
 }
