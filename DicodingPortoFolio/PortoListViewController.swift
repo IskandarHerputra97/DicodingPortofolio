@@ -11,7 +11,7 @@ import Firebase
 
 class PortoListViewController: UIViewController {
 
-    //MARK: PROPERTIES -
+    //MARK: - PROPERTIES
     var imageView = UIImageView()
     var tableView = UITableView()
     var portoFireStoreData = [Porto]()
@@ -29,7 +29,7 @@ class PortoListViewController: UIViewController {
         setupTableView()
     }
     
-    //MARK: SETUP UI
+    //MARK: - SETUP UI
     func setupNavigationBarItem() {
         let profileButton = UIButton(type: .system)
         profileButton.setImage(UIImage(named: "profileIcon24")?.withRenderingMode(.alwaysOriginal), for: .normal)
@@ -52,7 +52,7 @@ class PortoListViewController: UIViewController {
         setTableViewConstraints()
     }
     
-    //MARK: SET CONSTRAINTS
+    //MARK: - SET CONSTRAINTS
     func setTableViewConstraints() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
@@ -85,6 +85,16 @@ extension PortoListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.set(porto: portofolio, indexPathRow: indexPath.row)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let portoDetailViewController = PortoDetailViewController()
+       
+        //portoDetailViewController.portoImageView.image =
+        portoDetailViewController.indexPathRow = indexPath.row
+        portoDetailViewController.portoNameLabel.text = portoFireStoreData[indexPath.row].name
+        portoDetailViewController.portoDescriptionLabel.text = portoFireStoreData[indexPath.row].description
+        navigationController?.pushViewController(portoDetailViewController, animated: true)
     }
 }
 

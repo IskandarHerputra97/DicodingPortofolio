@@ -12,6 +12,7 @@ import Firebase
 class ProfileViewController: UIViewController {
 
     //MARK: PROPERTIES
+    let scrollView = UIScrollView()
     let stackView = UIStackView()
     let imageView = UIImageView()
     let nameLabel = UILabel()
@@ -29,6 +30,7 @@ class ProfileViewController: UIViewController {
         setupCityLabel()
         setupBioLabel()
         setupStackView()
+        //setupScrollView()
     }
     
 
@@ -37,6 +39,14 @@ class ProfileViewController: UIViewController {
     }
     
     //MARK: SETUP UI
+    func setupScrollView() {
+        view.addSubview(scrollView)
+        
+        scrollView.addSubview(stackView)
+        
+        setScrollViewConstraints()
+    }
+    
     func setupStackView() {
         view.addSubview(stackView)
         
@@ -78,12 +88,21 @@ class ProfileViewController: UIViewController {
     }
     
     //MARK: SET CONSTRAINTS
+    func setScrollViewConstraints() {
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+    
     func setStackViewConstraints() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        //stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        //stackView.heightAnchor.constraint(equalToConstant: 1000).isActive = true
     }
     
     //MARK: ACTIONS
