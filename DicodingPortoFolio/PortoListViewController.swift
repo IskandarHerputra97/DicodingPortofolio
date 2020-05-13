@@ -15,11 +15,13 @@ class PortoListViewController: UIViewController {
     var imageView = UIImageView()
     var tableView = UITableView()
     var portoFireStoreData = [Porto]()
+    var userData = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         fetchFirestoreData()
+        fetchUserFireStoreData()
         view.backgroundColor = .red
         title = "Portofolio List"
         
@@ -29,7 +31,13 @@ class PortoListViewController: UIViewController {
     
     //MARK: SETUP UI
     func setupNavigationBarItem() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addProfileButtonTapped))
+        let profileButton = UIButton(type: .system)
+        profileButton.setImage(UIImage(named: "profileIcon24")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        
+        profileButton.imageView?.contentMode = .scaleAspectFit
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: profileButton)
+        
+        profileButton.addTarget(self, action: #selector(profileButtonTapped), for: .touchUpInside)
     }
     
     func setupTableView() {
@@ -54,9 +62,13 @@ class PortoListViewController: UIViewController {
     }
 
     //MARK: ACTIONS
-    @objc func addProfileButtonTapped() {
+    @objc func profileButtonTapped() {
         let profileScreen = ProfileViewController()
         profileScreen.title = "Profil"
+        profileScreen.nameLabel.text = userData[0].name
+        profileScreen.emailLabel.text = userData[0].email
+        profileScreen.cityLabel.text = userData[0].city
+        profileScreen.bioLabel.text = userData[0].bio
         navigationController?.pushViewController(profileScreen, animated: true)
     }
 }
@@ -95,6 +107,26 @@ extension PortoListViewController {
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
+                }
+            }
+        }
+    }
+    
+    func fetchUserFireStoreData() {
+        let db = Firestore.firestore()
+        
+        db.collection("user").getDocuments{ (snapshot, error) in
+            if error == nil && snapshot != nil {
+                for document in snapshot!.documents {
+                    let documentData = document.data()
+                    
+                    let name = documentData["name"] as? String ?? ""
+                    let email = documentData["email"] as? String ?? ""
+                    let city = documentData["city"] as? String ?? ""
+                    let bio = documentData["bio"] as? String ?? ""
+                    let newUser = User(name: name, email: email, city: city, bio: bio)
+                    
+                    self.userData.append(newUser)
                 }
             }
         }

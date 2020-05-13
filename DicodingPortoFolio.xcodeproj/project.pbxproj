@@ -17,6 +17,7 @@
 		603B30BB245D637A0081383E /* PortoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603B30BA245D637A0081383E /* PortoTableViewCell.swift */; };
 		603B30BD245D6AEB0081383E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 603B30BC245D6AEB0081383E /* GoogleService-Info.plist */; };
 		603B30C2245E8DDE0081383E /* Porto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603B30C1245E8DDE0081383E /* Porto.swift */; };
+		60B2B00C246BCDEE00E4382A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B2B00B246BCDEE00E4382A /* User.swift */; };
 		D9921030918AE5D0A4D88769 /* Pods_DicodingPortoFolioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AEDC907B7D95E34662ADF3E /* Pods_DicodingPortoFolioTests.framework */; };
 		E2150B56E8FFCE912D1C3D9E /* Pods_DicodingPortoFolio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF1FA1D03C6CAFD32A2B04E /* Pods_DicodingPortoFolio.framework */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		603B30BA245D637A0081383E /* PortoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortoTableViewCell.swift; sourceTree = "<group>"; };
 		603B30BC245D6AEB0081383E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		603B30C1245E8DDE0081383E /* Porto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Porto.swift; sourceTree = "<group>"; };
+		60B2B00B246BCDEE00E4382A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6AEDC907B7D95E34662ADF3E /* Pods_DicodingPortoFolioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DicodingPortoFolioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DF1FA1D03C6CAFD32A2B04E /* Pods_DicodingPortoFolio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DicodingPortoFolio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AD1A4D73849C92E7CA64B4F /* Pods-DicodingPortoFolioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DicodingPortoFolioTests.release.xcconfig"; path = "Target Support Files/Pods-DicodingPortoFolioTests/Pods-DicodingPortoFolioTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				603B30C1245E8DDE0081383E /* Porto.swift */,
+				60B2B00B246BCDEE00E4382A /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				603B30BB245D637A0081383E /* PortoTableViewCell.swift in Sources */,
 				603B30C2245E8DDE0081383E /* Porto.swift in Sources */,
 				603B3096245D58140081383E /* AppDelegate.swift in Sources */,
+				60B2B00C246BCDEE00E4382A /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
