@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60265CAA246BF0CF00039B1A /* PortoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60265CA9246BF0CF00039B1A /* PortoDetailViewController.swift */; };
 		603B3096245D58140081383E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603B3095245D58140081383E /* AppDelegate.swift */; };
 		603B3098245D58140081383E /* PortoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603B3097245D58140081383E /* PortoListViewController.swift */; };
 		603B309E245D58140081383E /* DicodingPortoFolio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 603B309C245D58140081383E /* DicodingPortoFolio.xcdatamodeld */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		60265CA9246BF0CF00039B1A /* PortoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortoDetailViewController.swift; sourceTree = "<group>"; };
 		603B3092245D58140081383E /* DicodingPortoFolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DicodingPortoFolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		603B3095245D58140081383E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		603B3097245D58140081383E /* PortoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortoListViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				603B3097245D58140081383E /* PortoListViewController.swift */,
 				603B30BA245D637A0081383E /* PortoTableViewCell.swift */,
 				603B30B8245D5B8F0081383E /* ProfileViewController.swift */,
+				60265CA9246BF0CF00039B1A /* PortoDetailViewController.swift */,
 				603B309F245D58170081383E /* Assets.xcassets */,
 				603B30A1245D58170081383E /* LaunchScreen.storyboard */,
 				603B30A4245D58170081383E /* Info.plist */,
@@ -319,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60265CAA246BF0CF00039B1A /* PortoDetailViewController.swift in Sources */,
 				603B3098245D58140081383E /* PortoListViewController.swift in Sources */,
 				603B309E245D58140081383E /* DicodingPortoFolio.xcdatamodeld in Sources */,
 				603B30B9245D5B8F0081383E /* ProfileViewController.swift in Sources */,
