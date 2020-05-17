@@ -102,7 +102,6 @@ class ProfileViewController: UIViewController {
         stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        //stackView.heightAnchor.constraint(equalToConstant: 1000).isActive = true
     }
     
     //MARK: ACTIONS

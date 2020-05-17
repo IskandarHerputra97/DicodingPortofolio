@@ -23,10 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let db = Firestore.firestore()
         
         // Get a reference to the storage service using the default Firebase App
-        let storage = Storage.storage()
+        //let storage = Storage.storage()
         
         // Create a storage reference from our storage service
-        let storageRef = storage.reference()
+        //let storageRef = storage.reference()
         
         //Create data
         /*
@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if error == nil {
                 //Check that this document exist
                 if document != nil && document!.exists {
-                    let documentData = document!.data()
+                    //let documentData = document!.data()
                     //print(documentData)
                 }
             }
@@ -48,10 +48,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Read all data from documents
         db.collection("portofolio").getDocuments{ (snapshot, error) in
             if error == nil && snapshot != nil {
-                for document in snapshot!.documents {
-                    let documentData = document.data()
+                //for document in snapshot!.documents {
+                    //let documentData = document.data()
                     //print(documentData)
-                }
+                //}
             }
         }
         
